@@ -164,7 +164,13 @@ public class HttpRequest extends AsyncTask<Void,Void,String> {
                                 RequestBody formBodyAuth = new FormBody.Builder()
                                         .add("image_name", MainActivity.currentImageName)
                                         .add("email", email)
-                                        .add("method", "doFaceRecognition")
+                                        .add("latitude", this.lat)
+                                        .add("longitude", this.lng)
+                                        .add("action", this.action)
+                                        .add("time", getDateTime("HH:mm"))
+                                        .add("date", getDateTime("MM/dd/yyyy"))
+                                        .add("timezone", getTimeZone())
+                                        .add("method", "doFaceRecognition")//
                                         .build();
                                 Request requestAuth = createRequest(baseUrl, formBodyAuth);
                                 try {
